@@ -15,8 +15,10 @@
 function find(array, callback) {
   for (let element of array) {
     // Write your code here.
+    if (callback(element)) return element;
   }
 }
+// Using the callback function, return the first element in the array that causes the callback to return `true`.
 
 /**
  * Returns an array of all elements in the array that cause the callback to return `true`. If the array is empty or no elements cause the callback to return `true`, then return an empty array.
@@ -36,9 +38,11 @@ function filter(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+    if (callback(element)) result.push(element);
   }
   return result;
 }
+// this function should return  an array of all elements in the array that cause the callback to return `true`. using push method to add the element to the array
 
 /**
  * Returns an array where each element is transformed by the callback. If the array is empty, return an empty array.
@@ -58,9 +62,11 @@ function map(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+    result.push(callback(element));
   }
   return result;
 }
+// this function should return an array where each element is transformed by the callback. using push method to add the element to the array
 
 /**
  * Does not return anything. Passes each element of the array into the callback along with the index and the array, in that order.
@@ -78,8 +84,10 @@ function map(array, callback) {
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
+    callback(array[i], i, array);
   }
 }
+// this function should not return anything. using for loop to iterate through the array and pass each element of the array into the callback along with the index and the array, in that order.
 
 // Do not change the code below this line.
 module.exports = { find, filter, map, forEach };
