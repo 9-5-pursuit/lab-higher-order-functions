@@ -14,9 +14,15 @@
  */
 function find(array, callback) {
   for (let element of array) {
-    // Write your code here.
+    const resultOfCallback = callback(element);
+    if (resultOfCallback === true) {
+      return element;
+    }
   }
 }
+// callback = (element) => {
+
+// element.length > 0 === true;
 
 /**
  * Returns an array of all elements in the array that cause the callback to return `true`. If the array is empty or no elements cause the callback to return `true`, then return an empty array.
