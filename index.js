@@ -63,7 +63,8 @@ function filter(array, callback) {
 function map(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
+    const transformedCallback = callback(element);
+    result.push(transformedCallback);
   }
   return result;
 }
