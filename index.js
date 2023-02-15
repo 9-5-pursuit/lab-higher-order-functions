@@ -84,7 +84,9 @@ function map(array, callback) {
  */
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
-    // Write your code here.
+    const element = array[i]; //declare element
+    const result = callback(element, i, array);
+    console.log(result);
   }
 }
 
