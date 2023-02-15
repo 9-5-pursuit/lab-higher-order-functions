@@ -12,9 +12,13 @@
  *  find([1, 2, 3], (element) => element < 0);
  *  //> undefined
  */
+// I used the argument being passed through the callback condition as a function using the element of the given array as a condition/argument to check if it meets the necessary condition and return the element of the array if it does meet the condition.
 function find(array, callback) {
   for (let element of array) {
     // Write your code here.
+    if (callback(element)) {
+      return element;
+    }
   }
 }
 
@@ -32,10 +36,14 @@ function find(array, callback) {
  *  filter([1, 2, 3], (element) => element < 0);
  *  //> []
  */
+// I used the argument being passed through the callback condition as a function using the element of the given array as a condition/argument to check if it meets the necessary condition and pushed the element onto the empty 'result' array if it does meet the condition so it can be returned after all applicable elements have been accumulated.
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+    if (callback(element)) {
+      result.push(element);
+    }
   }
   return result;
 }
@@ -54,10 +62,12 @@ function filter(array, callback) {
  *  map([], (element) => element < 0);
  *  //> []
  */
+// // I used the argument being passed through the callback condition as a function using the element of the given array as a condition/argument to push the result of that function onto the 'result' array to be returned later after all results have been accumulated.
 function map(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+      result.push(callback(element));
   }
   return result;
 }
@@ -75,9 +85,11 @@ function map(array, callback) {
  *  //> 20 1 3
  *  //> 30 2 3
  */
+// // I used the argument being passed through the callback condition as a function using the element of the given array, the index number that the element resides in, and the array itself as conditions/arguments to pass into the 'callback' function that was given.
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
+    callback(array[i], i, array);
   }
 }
 
