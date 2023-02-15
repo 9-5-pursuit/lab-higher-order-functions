@@ -86,7 +86,7 @@ function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
     callback(array[i], i, array);
-    // callbacks accepts tree arguments: elements, index, and the array for the
+    // callbacks accepts tree arguments: elements, index, and the array 
   }
 }
 
