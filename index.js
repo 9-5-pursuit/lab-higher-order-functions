@@ -39,9 +39,11 @@ function filter(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
-
-    return result;
+    if (callback(element)) {
+      result.push(element);
+    }
   }
+  return result;
 }
 /**
  * Returns an array where each element is transformed by the callback. If the array is empty, return an empty array.
