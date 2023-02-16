@@ -14,10 +14,12 @@
  */
 function find(array, callback) {
   for (let element of array) {
-    // Write your code here.
+  
+    if(callback(element)){
+      return element
+    }
   }
 }
-
 /**
  * Returns an array of all elements in the array that cause the callback to return `true`. If the array is empty or no elements cause the callback to return `true`, then return an empty array.
  * @param {*[]} array - An array of elements. Could be anything!
@@ -35,7 +37,9 @@ function find(array, callback) {
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
+    if (callback(element)){
+      result.push(element)
+    }
   }
   return result;
 }
@@ -57,10 +61,16 @@ function filter(array, callback) {
 function map(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
-  }
+   if (callback(element)){
+    let store = callback(element)
+    result.push(store)
+   }else if(callback(element)===false){
+    result.push(false)
+     }
+   }
   return result;
-}
+ }
+
 
 /**
  * Does not return anything. Passes each element of the array into the callback along with the index and the array, in that order.
@@ -77,7 +87,13 @@ function map(array, callback) {
  */
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
-    // Write your code here.
+    let element = array[i];
+    let index = array.indexOf(array[i]);
+  if (callback(element, index, array)){
+     
+     console.log(`${(element)} ${(index)} ${(array)} `)
+      
+    }
   }
 }
 
