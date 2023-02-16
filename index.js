@@ -85,13 +85,11 @@ function map(array, callback) {
  *  //> 30 2 3
  */
 function forEach(array, callback) {
-  const result = [];
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
     let element = array[i];
-    result.push(callback(element, i, array));
+    callback(element, i, array);
   }
-  return result
 }
 
 // Do not change the code below this line.
