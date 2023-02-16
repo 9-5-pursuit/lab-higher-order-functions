@@ -14,7 +14,10 @@
  */
 function find(array, callback) {
   for (let element of array) {
-    // Write your code here.
+    if (callback(element)){
+      return element;
+      //if the callback function with element passed in is true it should return the element 
+    }
   }
 }
 
@@ -35,7 +38,11 @@ function find(array, callback) {
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
+  
+    if (callback(element)){
+      result.push(element)
+  // if the callback function w/ the element passed in is true it should push the element as it into the established result array     
+    }
   }
   return result;
 }
@@ -57,7 +64,8 @@ function filter(array, callback) {
 function map(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
+    result.push(callback(element))
+    //callback function w/ the element passed in should be pushed onto the result array then returned
   }
   return result;
 }
@@ -78,6 +86,8 @@ function map(array, callback) {
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
+    callback(array[i], i , array)
+    // passing in the arguements in the correct order while subbing in the coresponding values as arguments within the for loop 
   }
 }
 
