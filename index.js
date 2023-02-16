@@ -11,11 +11,18 @@
  * EXAMPLE:
  *  find([1, 2, 3], (element) => element < 0);
  *  //> undefined
+ * -----------------------------------------
+ * - if returns callback function passed in param returns element
+ * - if doesnt return callback fn, returns undefined
  */
 function find(array, callback) {
   for (let element of array) {
     // Write your code here.
+    if (callback(element)) {
+      return element;
+    }
   }
+  return undefined;
 }
 
 /**
@@ -31,11 +38,17 @@ function find(array, callback) {
  * EXAMPLE:
  *  filter([1, 2, 3], (element) => element < 0);
  *  //> []
+ * ---------------------------------------
+ * - if returns callback function passed in param, returns element
+ * - returns empty array if no element true with callback fn
  */
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+    if (callback(element)) {
+      result.push(element);
+    }
   }
   return result;
 }
@@ -53,11 +66,15 @@ function filter(array, callback) {
  * EXAMPLE:
  *  map([], (element) => element < 0);
  *  //> []
+ * ---------------------------------------
+ * - pushed tranformed element to result array
+ * - else returns empty array
  */
 function map(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+    result.push(callback(element));
   }
   return result;
 }
@@ -74,10 +91,13 @@ function map(array, callback) {
  *  //> 10 0 3
  *  //> 20 1 3
  *  //> 30 2 3
+ * -------------------------------------------
+ * - callback function passing the element, index as i, and array method being passed as param.
  */
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
+    callback(array[i], i, array);
   }
 }
 
