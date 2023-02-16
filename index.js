@@ -12,11 +12,21 @@
  *  find([1, 2, 3], (element) => element < 0);
  *  //> undefined
  */
+// Two arguments
+// Array = [10, 20, 30], callback is a function
+// const callback = (element) => element === 20;
 function find(array, callback) {
+  // iterate though the array
   for (let element of array) {
     // Write your code here.
+  // if callback element is strictly equal to 20 then execute element
+      if (callback(element)) {
+        return element;
+      }
+    }
+    return undefined;
   }
-}
+
 
 /**
  * Returns an array of all elements in the array that cause the callback to return `true`. If the array is empty or no elements cause the callback to return `true`, then return an empty array.
@@ -31,12 +41,20 @@ function find(array, callback) {
  * EXAMPLE:
  *  filter([1, 2, 3], (element) => element < 0);
  *  //> []
- */
+ */             
+// array = [10, 20, 30], callback = 
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+   
+  // iterate through the loop
+  // if callback element more than or equal to 20 is true then push element into array (result)
+  if (callback(element)) {
+    result.push(element)
+
   }
+}
   return result;
 }
 
@@ -55,9 +73,19 @@ function filter(array, callback) {
  *  //> []
  */
 function map(array, callback) {
+  // empty array to have changed elements
   const result = [];
   for (let element of array) {
     // Write your code here.
+    // if callback function argument turns true after iteration 
+  { 
+    // the elements changed by callback function 
+    // push changed into changedElement
+     //empty array gets changedElements pushed on 
+    changedElement = callback(element)
+   
+    result.push(changedElement)
+  }
   }
   return result;
 }
@@ -76,9 +104,15 @@ function map(array, callback) {
  *  //> 30 2 3
  */
 function forEach(array, callback) {
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) { 
     // Write your code here.
+    let newElement = array[i];
+  callback(newElement, i, array)
+    
+ 
+
   }
+  
 }
 
 // Do not change the code below this line.
