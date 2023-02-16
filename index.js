@@ -61,6 +61,7 @@ function filter(array, callback) {
  *  map([], (element) => element < 0);
  *  //> []
  */
+
 function map(array, callback) {
   const result = [];
   for (let element of array) {
@@ -84,10 +85,12 @@ function map(array, callback) {
  *  //> 20 1 3
  *  //> 30 2 3
  */
+
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
-
+    const element = array[i];
+    const index = i;
     callback(element, index, array);
   }
 }
