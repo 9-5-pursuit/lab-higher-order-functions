@@ -15,7 +15,6 @@
 function find(array, callback) {
   for (let element of array) {
     // Write your code here.
-
     if (callback(element)) {
       return element;
     }
