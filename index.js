@@ -13,6 +13,7 @@
  *  //> undefined
  */
 function find(array, callback) {
+  // created a if statement with the callback funtion (element)
   for (let element of array) {
     if (callback(element)){
       return element
@@ -38,7 +39,9 @@ function filter(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+    // created a `if` statement with the callback funtion (element) as argument
     if (callback(element)){
+      // used the .push method to push the elements inside the empty arry (result)
      result.push(element)
     }
   }
@@ -63,7 +66,9 @@ function map(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+    // created a new variable and gave the callback(element) value
     const trans = callback(element)
+    // used the .push method to push the elements inside the empty arry (result)
     result.push(trans)
   }
   return result;
