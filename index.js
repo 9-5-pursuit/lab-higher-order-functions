@@ -15,6 +15,10 @@
 function find(array, callback) {
   for (let element of array) {
     // Write your code here.
+    const result = callback(element);
+    if (result) {
+      return element;
+    }
   }
 }
 
@@ -35,7 +39,9 @@ function find(array, callback) {
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
+    if (callback(element) === true) {
+      result.push(element);
+    }
   }
   return result;
 }
@@ -55,9 +61,13 @@ function filter(array, callback) {
  *  //> []
  */
 function map(array, callback) {
+  // const array = [10, 20, 30];
+  // const callback = (element) => element + 1;
   const result = [];
   for (let element of array) {
     // Write your code here.
+    const modifiedArr = callback(element);
+    result.push(modifiedArr);
   }
   return result;
 }
@@ -78,6 +88,8 @@ function map(array, callback) {
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
+    let element = array[i];
+    callback(element, i, array);
   }
 }
 
